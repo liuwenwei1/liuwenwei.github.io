@@ -3,62 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人博客 | 探索技术与生活</title>
+    <title>我的个人博客 | 分享技术与生活</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #4361ee;
-            --secondary: #3f37c9;
-            --accent: #4895ef;
-            --light: #f8f9fa;
-            --dark: #212529;
-            --gray: #6c757d;
-            --light-gray: #e9ecef;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
-        body {
-            font-family: 'Noto Sans SC', sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            background-color: #f5f7ff;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3f37c9;
+            --accent-color: #4895ef;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --gray-color: #6c757d;
+            --border-color: #dee2e6;
+            --success-color: #4cc9f0;
+            --transition: all 0.3s ease;
         }
         
-        /* 头部导航样式 */
-        header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 1rem 0;
-            box-shadow: var(--shadow);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #f9fafb;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--secondary-color);
         }
         
         .container {
-            width: 90%;
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 头部样式 */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 20px 0;
         }
         
-    
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
         
         nav ul {
             display: flex;
@@ -66,613 +80,502 @@
         }
         
         nav ul li {
-            margin-left: 1.5rem;
+            margin-left: 30px;
         }
         
         nav ul li a {
-            color: white;
-            text-decoration: none;
             font-weight: 500;
-            padding: 0.5rem 0.8rem;
-            border-radius: 4px;
-            transition: var(--transition);
-        }
-        
-        nav ul li a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-        
-        nav ul li a.active {
-            background-color: rgba(255, 255, 255, 0.3);
-        }
-        
-        /* 英雄区域 */
-        .hero {
-            background: linear-gradient(rgba(67, 97, 238, 0.9), rgba(63, 55, 201, 0.9)), url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80') center/cover no-repeat;
-            color: white;
-            padding: 5rem 0;
-            text-align: center;
-        }
-        
-        .hero-content {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: white;
-            color: var(--primary);
-            padding: 0.8rem 1.8rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-            border: 2px solid white;
-        }
-        
-        .btn:hover {
-            background-color: transparent;
-            color: white;
-            transform: translateY(-3px);
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            color: white;
-            margin-left: 1rem;
-        }
-        
-        .btn-outline:hover {
-            background-color: white;
-            color: var(--primary);
-        }
-        
-        /* 主要内容区域 */
-        main {
-            flex: 1;
-            padding: 4rem 0;
-        }
-        
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--secondary);
             position: relative;
         }
         
-        .section-title:after {
+        nav ul li a::after {
             content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: var(--accent);
-            margin: 10px auto;
-            border-radius: 2px;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: var(--transition);
         }
         
-        /* 博客文章网格 */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+        nav ul li a:hover::after {
+            width: 100%;
         }
         
+        .search-bar {
+            display: flex;
+            margin-left: 30px;
+        }
+        
+        .search-bar input {
+            padding: 8px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+        
+        .search-bar button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .search-bar button:hover {
+            background: var(--secondary-color);
+        }
+        
+        /* 主要内容区域 */
+        .main-content {
+            display: flex;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .content {
+            flex: 3;
+        }
+        
+        .sidebar {
+            flex: 1;
+        }
+        
+        /* 博客文章卡片 */
         .blog-card {
             background: white;
-            border-radius: 10px;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: var(--shadow);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
             transition: var(--transition);
         }
         
         .blog-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
         
         .card-img {
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .card-img img {
             width: 100%;
-            height: 100%;
+            height: 220px;
             object-fit: cover;
-            transition: var(--transition);
-        }
-        
-        .blog-card:hover .card-img img {
-            transform: scale(1.1);
         }
         
         .card-content {
-            padding: 1.5rem;
+            padding: 25px;
         }
         
-        .category {
+        .category-tag {
             display: inline-block;
-            background: var(--light);
-            color: var(--primary);
-            font-size: 0.8rem;
-            padding: 0.3rem 0.8rem;
+            background: var(--accent-color);
+            color: white;
+            padding: 5px 12px;
             border-radius: 30px;
-            margin-bottom: 0.8rem;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
         }
         
         .card-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
-            line-height: 1.4;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
         }
         
         .card-content p {
-            color: var(--gray);
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
+            color: var(--gray-color);
+            margin-bottom: 20px;
         }
         
-        .card-footer {
+        .post-meta {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding-top: 1rem;
-            border-top: 1px solid var(--light-gray);
+            color: var(--gray-color);
             font-size: 0.9rem;
-            color: var(--gray);
         }
         
-        .author {
+        .post-meta span {
+            margin-right: 20px;
             display: flex;
             align-items: center;
         }
         
-        .author-img {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            margin-right: 0.5rem;
-            object-fit: cover;
+        .post-meta i {
+            margin-right: 5px;
         }
         
-        /* 侧边栏 */
-        .content-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 3rem;
+        .read-more {
+            display: inline-block;
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-top: 15px;
         }
         
-        .sidebar {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
+        .read-more:hover {
+            color: var(--secondary-color);
         }
         
+        /* 侧边栏样式 */
         .sidebar-widget {
-            margin-bottom: 2rem;
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
         
-        .sidebar-title {
+        .sidebar-widget h3 {
             font-size: 1.3rem;
-            margin-bottom: 1.2rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--light-gray);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-color);
+            color: var(--dark-color);
         }
         
-        .about-widget {
-            text-align: center;
-        }
-        
-        .author-large {
-            width: 120px;
-            height: 120px;
+        .about-widget img {
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             object-fit: cover;
-            margin: 0 auto 1.5rem;
-            border: 5px solid var(--light-gray);
+            margin-bottom: 15px;
+            border: 3px solid var(--accent-color);
+        }
+        
+        .about-widget p {
+            margin-bottom: 15px;
+            color: var(--gray-color);
         }
         
         .social-links {
             display: flex;
-            justify-content: center;
-            margin-top: 1.5rem;
+            gap: 15px;
+            margin-top: 10px;
         }
         
         .social-links a {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: var(--light);
-            color: var(--primary);
+            width: 36px;
+            height: 36px;
+            background: var(--light-color);
             border-radius: 50%;
-            margin: 0 0.5rem;
             transition: var(--transition);
         }
         
         .social-links a:hover {
-            background: var(--primary);
+            background: var(--primary-color);
             color: white;
-            transform: translateY(-3px);
+        }
+        
+        .category-list {
+            list-style: none;
+        }
+        
+        .category-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .category-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .category-list a {
+            display: flex;
+            justify-content: space-between;
+            color: var(--dark-color);
+        }
+        
+        .category-list a:hover {
+            color: var(--primary-color);
+        }
+        
+        .category-list span {
+            background: var(--light-color);
+            padding: 2px 8px;
+            border-radius: 30px;
+            font-size: 0.8rem;
         }
         
         .popular-posts .post {
             display: flex;
-            margin-bottom: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--light-gray);
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
         }
         
         .popular-posts .post:last-child {
+            border-bottom: none;
             margin-bottom: 0;
             padding-bottom: 0;
-            border-bottom: none;
         }
         
         .popular-posts .post-img {
             width: 70px;
             height: 70px;
-            border-radius: 5px;
+            border-radius: 4px;
             object-fit: cover;
-            margin-right: 1rem;
+            margin-right: 15px;
         }
         
-        .popular-posts .post-title {
+        .popular-posts .post-content h4 {
             font-size: 0.95rem;
-            margin-bottom: 0.3rem;
+            margin-bottom: 5px;
         }
         
-        .popular-posts .post-date {
+        .popular-posts .post-content .date {
             font-size: 0.8rem;
-            color: var(--gray);
-        }
-        
-        .tags-widget .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        
-        .tags-widget .tag {
-            display: inline-block;
-            background: var(--light);
-            color: var(--dark);
-            padding: 0.4rem 0.8rem;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            transition: var(--transition);
-        }
-        
-        .tags-widget .tag:hover {
-            background: var(--primary);
-            color: white;
+            color: var(--gray-color);
         }
         
         /* 页脚样式 */
         footer {
-            background: var(--dark);
+            background: var(--dark-color);
             color: white;
-            padding: 3rem 0 2rem;
+            padding: 60px 0 30px;
         }
         
         .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-widget {
+            flex: 1;
+            min-width: 250px;
         }
         
         .footer-widget h3 {
             font-size: 1.3rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 20px;
+            color: white;
             position: relative;
-            padding-bottom: 0.5rem;
+            padding-bottom: 10px;
         }
         
-        .footer-widget h3:after {
+        .footer-widget h3::after {
             content: '';
             position: absolute;
-            left: 0;
             bottom: 0;
-            width: 50px;
+            left: 0;
+            width: 40px;
             height: 2px;
-            background: var(--accent);
+            background: var(--accent-color);
         }
         
         .footer-widget p {
             color: #adb5bd;
-            margin-bottom: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            list-style: none;
         }
         
         .footer-links li {
-            margin-bottom: 0.8rem;
-            list-style: none;
+            margin-bottom: 10px;
         }
         
         .footer-links a {
             color: #adb5bd;
-            text-decoration: none;
             transition: var(--transition);
         }
         
         .footer-links a:hover {
-            color: var(--accent);
+            color: var(--accent-color);
             padding-left: 5px;
         }
         
         .copyright {
             text-align: center;
-            padding-top: 2rem;
-            margin-top: 2rem;
+            padding-top: 30px;
             border-top: 1px solid #343a40;
-            color: #6c757d;
+            color: #adb5bd;
             font-size: 0.9rem;
         }
         
         /* 响应式设计 */
         @media (max-width: 992px) {
-            .content-wrapper {
-                grid-template-columns: 1fr;
+            .main-content {
+                flex-direction: column;
             }
             
-            .hero h1 {
-                font-size: 2.8rem;
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin: 20px 0;
+                justify-content: center;
+            }
+            
+            .search-bar {
+                margin: 15px 0 0;
+                width: 100%;
+                max-width: 400px;
+            }
+            
+            .search-bar input {
+                flex: 1;
             }
         }
         
         @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-            }
-            
-            .logo {
-                margin-bottom: 1rem;
-            }
-            
             nav ul {
-                justify-content: center;
+                flex-wrap: wrap;
             }
             
             nav ul li {
-                margin: 0 0.5rem;
+                margin: 5px 15px;
             }
             
-            .hero h1 {
-                font-size: 2.3rem;
+            .post-meta {
+                flex-wrap: wrap;
             }
             
-            .btn-container {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .btn {
-                margin-bottom: 1rem;
-                width: 80%;
-                text-align: center;
-            }
-            
-            .btn-outline {
-                margin-left: 0;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .blog-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero {
-                padding: 3rem 0;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
+            .post-meta span {
+                margin: 5px 15px 5px 0;
             }
         }
     </style>
 </head>
 <body>
-    <!-- 头部导航 -->
+    <!-- 头部区域 -->
     <header>
         <div class="container header-container">
-            <div class="logo">
-                <i class="fas fa-blog"></i>
-                刘文卫个人博客
-            </div>
+            <div class="logo">技术<span>博客</span></div>
+            
             <nav>
                 <ul>
-                    <li><a href="#" class="active">首页</a></li>
-                    <li><a href="#">技术</a></li>
-                    <li><a href="#">生活</a></li>
-                    <li><a href="#">旅行</a></li>
-                    <li><a href="#">关于我</a></li>
-                    <li><a href="#">联系</a></li>
+                    <li><a href="#"><i class="fas fa-home"></i> 首页</a></li>
+                    <li><a href="#"><i class="fas fa-folder"></i> 分类</a></li>
+                    <li><a href="#"><i class="fas fa-tags"></i> 标签</a></li>
+                    <li><a href="#"><i class="fas fa-user"></i> 关于</a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i> 联系</a></li>
                 </ul>
             </nav>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="搜索文章...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
         </div>
     </header>
 
-    <!-- 英雄区域 -->
-    <section class="hero">
-        <div class="container hero-content">
-            <h1>探索技术与生活的美好</h1>
-            <p>在这里，我分享编程技巧、旅行故事和生活感悟，记录成长的点滴</p>
-            <div class="btn-container">
-                <a href="#" class="btn">阅读最新文章</a>
-                <a href="#" class="btn btn-outline">了解更多</a>
-            </div>
-        </div>
-    </section>
-
     <!-- 主要内容区域 -->
-    <main class="container">
-        <h2 class="section-title">最新文章</h2>
-        
-        <div class="content-wrapper">
-            <div>
-                <div class="blog-grid">
-                    <!-- 博客文章卡片 1 -->
-                    <article class="blog-card">
-                        <div class="card-img">
-                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="React 性能优化">
+    <div class="container">
+        <div class="main-content">
+            <!-- 文章内容区域 -->
+            <div class="content">
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Web开发" class="card-img">
+                    <div class="card-content">
+                        <div class="category-tag">前端开发</div>
+                        <h3>深入理解JavaScript闭包及其应用场景</h3>
+                        <p>闭包是JavaScript中一个强大且常被误解的概念。本文将详细解释闭包的工作原理，并通过实际案例展示如何在实际开发中有效利用闭包解决常见问题。</p>
+                        <div class="post-meta">
+                            <span><i class="far fa-user"></i> 张明</span>
+                            <span><i class="far fa-calendar"></i> 2023年10月15日</span>
+                            <span><i class="far fa-comments"></i> 24条评论</span>
+                            <span><i class="far fa-clock"></i> 8分钟阅读</span>
                         </div>
-                        <div class="card-content">
-                            <span class="category">前端开发</span>
-                            <h3>React 性能优化的 10 个实用技巧</h3>
-                            <p>深入探讨 React 应用性能优化的关键策略，包括 memoization、代码分割和懒加载等高级技术。</p>
-                            <div class="card-footer">
-                                <div class="author">
-                                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="作者" class="author-img">
-                                    <span>刘文卫</span>
-                                </div>
-                                <span>2023-10-15</span>
-                            </div>
+                        <a href="#" class="read-more">阅读更多 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80" alt="React" class="card-img">
+                    <div class="card-content">
+                        <div class="category-tag">React框架</div>
+                        <h3>React Hooks完全指南：从入门到精通</h3>
+                        <p>React Hooks彻底改变了我们编写React组件的方式。本指南将带你从基础概念开始，逐步掌握useState、useEffect等核心Hook，并探讨自定义Hook的高级用法。</p>
+                        <div class="post-meta">
+                            <span><i class="far fa-user"></i> 李华</span>
+                            <span><i class="far fa-calendar"></i> 2023年10月10日</span>
+                            <span><i class="far fa-comments"></i> 18条评论</span>
+                            <span><i class="far fa-clock"></i> 10分钟阅读</span>
                         </div>
-                    </article>
-                    
-                    <!-- 博客文章卡片 2 -->
-                    <article class="blog-card">
-                        <div class="card-img">
-                            <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="JavaScript 设计模式">
+                        <a href="#" class="read-more">阅读更多 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1550439062-609e1531270e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="CSS" class="card-img">
+                    <div class="card-content">
+                        <div class="category-tag">CSS技巧</div>
+                        <h3>现代CSS布局技术：Flexbox与Grid实战对比</h3>
+                        <p>Flexbox和Grid是现代CSS布局的两大利器。本文将通过实际案例对比它们的适用场景，帮助你选择最适合的布局方案，并解决常见的布局难题。</p>
+                        <div class="post-meta">
+                            <span><i class="far fa-user"></i> 王芳</span>
+                            <span><i class="far fa-calendar"></i> 2023年10月5日</span>
+                            <span><i class="far fa-comments"></i> 32条评论</span>
+                            <span><i class="far fa-clock"></i> 12分钟阅读</span>
                         </div>
-                        <div class="card-content">
-                            <span class="category">JavaScript</span>
-                            <h3>JavaScript 设计模式在实际项目中的应用</h3>
-                            <p>探索 JavaScript 中常用的设计模式，了解如何利用它们解决常见问题并提高代码可维护性。</p>
-                            <div class="card-footer">
-                                <div class="author">
-                                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="作者" class="author-img">
-                                    <span>刘文卫</span>
-                                </div>
-                                <span>2023-10-08</span>
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <!-- 博客文章卡片 3 -->
-                    <article class="blog-card">
-                        <div class="card-img">
-                            <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="云南之旅">
-                        </div>
-                        <div class="card-content">
-                            <span class="category">旅行日记</span>
-                            <h3>云南七日自由行：苍山洱海间的慢生活</h3>
-                            <p>记录我在云南的七日旅程，分享大理、丽江和香格里拉的绝美风光和人文体验。</p>
-                            <div class="card-footer">
-                                <div class="author">
-                                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="作者" class="author-img">
-                                    <span>刘文卫</span>
-                                </div>
-                                <span>2023-09-28</span>
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <!-- 博客文章卡片 4 -->
-                    <article class="blog-card">
-                        <div class="card-img">
-                            <img src="https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="CSS Grid">
-                        </div>
-                        <div class="card-content">
-                            <span class="category">CSS</span>
-                            <h3>现代 CSS Grid 布局完全指南</h3>
-                            <p>掌握 CSS Grid 的强大功能，学习如何创建复杂的响应式布局，告别传统布局方法的限制。</p>
-                            <div class="card-footer">
-                                <div class="author">
-                                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="作者" class="author-img">
-                                    <span>刘文卫</span>
-                                </div>
-                                <span>2023-09-20</span>
-                            </div>
-                        </div>
-                    </article>
+                        <a href="#" class="read-more">阅读更多 <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
             
             <!-- 侧边栏 -->
-            <aside class="sidebar">
-                <!-- 关于作者 -->
+            <div class="sidebar">
                 <div class="sidebar-widget about-widget">
-                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="作者" class="author-large">
-                    <h3 class="sidebar-title">关于我</h3>
-                    <p>前端工程师，热爱旅行和摄影。在这里分享技术经验和生活感悟，记录成长的点滴。</p>
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="博主头像">
+                    <h3>关于我</h3>
+                    <p>前端开发工程师，热爱分享技术经验。专注于React、Vue等现代前端框架，喜欢探索新技术和最佳实践。</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-github"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 
-                <!-- 热门文章 -->
+                <div class="sidebar-widget">
+                    <h3>文章分类</h3>
+                    <ul class="category-list">
+                        <li><a href="#">前端开发 <span>24</span></a></li>
+                        <li><a href="#">JavaScript <span>18</span></a></li>
+                        <li><a href="#">React <span>15</span></a></li>
+                        <li><a href="#">CSS技巧 <span>22</span></a></li>
+                        <li><a href="#">Web性能优化 <span>12</span></a></li>
+                        <li><a href="#">TypeScript <span>9</span></a></li>
+                    </ul>
+                </div>
+                
                 <div class="sidebar-widget popular-posts">
-                    <h3 class="sidebar-title">热门文章</h3>
+                    <h3>热门文章</h3>
                     <div class="post">
-                        <img src="https://images.unsplash.com/photo-1586769852044-692d6e3703f0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Vue 3" class="post-img">
-                        <div>
-                            <h4 class="post-title">Vue 3 Composition API 深度解析</h4>
-                            <div class="post-date">2023-09-10</div>
+                        <img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1631&q=80" alt="热门文章" class="post-img">
+                        <div class="post-content">
+                            <h4>10个提升JavaScript性能的技巧</h4>
+                            <div class="date">2023年9月28日</div>
                         </div>
                     </div>
                     <div class="post">
-                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80" alt="TypeScript" class="post-img">
-                        <div>
-                            <h4 class="post-title">TypeScript 在大型项目中的实践</h4>
-                            <div class="post-date">2023-08-22</div>
+                        <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="热门文章" class="post-img">
+                        <div class="post-content">
+                            <h4>2023年值得学习的前端框架</h4>
+                            <div class="date">2023年9月20日</div>
                         </div>
                     </div>
                     <div class="post">
-                        <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1121&q=80" alt="日本旅行" class="post-img">
-                        <div>
-                            <h4 class="post-title">日本关西十日深度游攻略</h4>
-                            <div class="post-date">2023-08-05</div>
+                        <img src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="热门文章" class="post-img">
+                        <div class="post-content">
+                            <h4>CSS Grid布局完全指南</h4>
+                            <div class="date">2023年9月15日</div>
                         </div>
                     </div>
                 </div>
-                
-                <!-- 标签云 -->
-                <div class="sidebar-widget tags-widget">
-                    <h3 class="sidebar-title">热门标签</h3>
-                    <div class="tags">
-                        <a href="#" class="tag">JavaScript</a>
-                        <a href="#" class="tag">React</a>
-                        <a href="#" class="tag">CSS</a>
-                        <a href="#" class="tag">Vue</a>
-                        <a href="#" class="tag">前端工程化</a>
-                        <a href="#" class="tag">旅行</a>
-                        <a href="#" class="tag">摄影</a>
-                        <a href="#" class="tag">读书笔记</a>
-                        <a href="#" class="tag">TypeScript</a>
-                        <a href="#" class="tag">Node.js</a>
-                    </div>
-                </div>
-            </aside>
+            </div>
         </div>
-    </main>
+    </div>
 
     <!-- 页脚 -->
     <footer>
@@ -680,33 +583,46 @@
             <div class="footer-content">
                 <div class="footer-widget">
                     <h3>关于博客</h3>
-                    <p>这是一个分享前端技术、旅行见闻和生活感悟的个人博客。记录成长，分享知识，希望能给读者带来启发和帮助。</p>
+                    <p>个人技术博客，分享前端开发、Web技术和编程心得。致力于提供高质量的技术内容和学习资源。</p>
                 </div>
                 
                 <div class="footer-widget">
                     <h3>快速链接</h3>
                     <ul class="footer-links">
-                        <li><a href="#">首页</a></li>
-                        <li><a href="https://github.com/liuwenwei1/liuwenwei.github.io/blob/main/%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E4%B8%BB%E6%B5%81%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%BB%BC%E5%90%88%E8%83%BD%E5%8A%9B%E5%AF%B9%E6%AF%94%E6%8A%A5%E5%91%8A.md">技术文章</a></li>
-                        <li><a href="#">旅行日记</a></li>
-                        <li><a href="#">生活随笔</a></li>
-                        <li><a href="#">关于我</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> 首页</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> 关于我</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> 文章分类</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> 热门文章</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> 联系我</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-widget">
+                    <h3>分类</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-angle-right"></i> JavaScript</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> CSS</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> React</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Vue</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> 性能优化</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-widget">
                     <h3>联系我</h3>
-                    <ul class="footer-links">
-                        <li><i class="fas fa-envelope"></i> contact@liuwenwei.com</li>
-                        <li><i class="fab fa-github"></i> github.com/liuwenwei</li>
-                        <li><i class="fab fa-twitter"></i> twitter.com/liuwenwei</li>
-                        <li><i class="fas fa-map-marker-alt"></i> 北京市海淀区</li>
-                    </ul>
+                    <p><i class="fas fa-envelope"></i> contact@example.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 北京市海淀区</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                    </div>
                 </div>
             </div>
             
             <div class="copyright">
-                &copy; 2025刘文卫个人博客 | 个人博客. 保留所有权利。
+                &copy; 2023 我的技术博客. 保留所有权利 | 设计制作: 个人博客
             </div>
         </div>
     </footer>
